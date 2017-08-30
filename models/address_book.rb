@@ -30,7 +30,7 @@ class AddressBook
   end
 
   def remove_entry(name, phone_number, email)
-    target_index = entries.find_index { |entry| entry.name == name && entry.phone_number == phone_number && entry.email == email }
+    target_index = entries.find_index {|entry| entry.name == name && entry.phone_number == phone_number && entry.email == email}
     entries.delete_at(target_index)
   end
 
@@ -48,6 +48,17 @@ class AddressBook
         upper = mid - 1
       elsif name > mid_name
         lower = mid + 1
+      end
+    end
+
+    return nil
+
+  end
+
+  def iterative_search(name)
+    for entry in entries
+      if entry.name == name
+        return entry
       end
     end
 
